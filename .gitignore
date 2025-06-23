@@ -1,0 +1,4 @@
+# ignora archivos de vscode
+.vscode/
+# ignora ejecutables de windows
+*.exe
