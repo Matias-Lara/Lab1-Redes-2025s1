@@ -11,9 +11,8 @@
 9. Y listo, tendran la libreria Cryptopp(crypto++) con el archivo pem.h que sirve para cargar claves pem en c++
 10. Compilar los archivos con 'g++ nombre.cpp -o nombre -mconsole -lcryptopp'
 
-## Conclusiones sobre asimetrico.cpp:
-Al compilar y ejecutar el .exe nos damos cuenta q la firma digital mas el mensaje exceden el tamanio posible que RSA puede cifrar (214bytes) por lo tanto la ejecucion captura el error y lo muestra por consola.
-La solucion a esto es implementar de forma hibrida los dos algoritmos (simetrico y asimetrico) y esta es la respuesta de la pregunta 4 (la del canal seguro)
-
 ## que falta de momento?
-Faltaria el desarollo de esta solucion de la q hablo, es decir la 4. y crear el informe en latex
+Faltaria el desarollo de la 4. (canal seguro o algo asi) creo q la solucion de esta parte se basa en crear un canal hibrido que usa AES y RSA para enviar/recibir y confirmar la autenticidad del mensaje
+
+### Logica de asimetrico.cpp:
+El mensaje es enviado de la forma paquete = mensaje_cifrado + delimitador + firma
