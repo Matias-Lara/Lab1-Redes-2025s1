@@ -12,7 +12,8 @@
 10. Compilar los archivos con 'g++ nombre.cpp -o nombre -mconsole -lcryptopp'
 
 ## que falta de momento?
-Faltaria el desarollo de la 4. (canal seguro o algo asi) creo q la solucion de esta parte se basa en crear un canal hibrido que usa AES y RSA para enviar/recibir y confirmar la autenticidad del mensaje
+1. Faltaria el desarollo de la 4. (canal seguro o algo asi) creo q la solucion de esta parte se basa en crear un canal hibrido que usa AES y RSA para enviar/recibir y confirmar la autenticidad del mensaje
+2. Hacer el informe de latex
 
 ### Logica de asimetrico.cpp:
 El mensaje es enviado de la forma paquete = mensaje_cifrado + delimitador + firma
