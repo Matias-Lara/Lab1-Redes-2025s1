@@ -54,6 +54,7 @@ int main() {
     // el resultado esta en bytes, para mostrarlo lo codificamos
     string mensaje_cifrado_b64;
 
+    // codifica el mensaje cifrado en Base64 para simular el envío
     StringSource(mensaje_cifrado, true,
         new Base64Encoder( //filtro que recibe bytes y lo transforma en texto legible en formato base64
             new StringSink(mensaje_cifrado_b64), 
@@ -63,24 +64,31 @@ int main() {
     cout << "------------------------------------------------" << endl;
     cout << "[RESULTADO] Mensaje Cifrado (Base64): " << mensaje_cifrado_b64 << std::endl;
 
+    // simulamos la recepción: decodificamos el mensaje Base64 recibido para recuperar los bytes originales
+    string mensaje_cifrado_recibido;
+    StringSource(mensaje_cifrado_b64, true,
+        new Base64Decoder(
+            new StringSink(mensaje_cifrado_recibido)
+        )
+    );
 
-    // descifrando el mensaje para comprobar q se encripto bien
+    // descifrando el mensaje para comprobar que se encriptó bien
     string mensaje_recuperado;
     
     // creamos el motor de descifrado con 'Decryption'
     CBC_Mode<AES>::Decryption descifrador;
-    // le pasamos la clave secreta acordada para q descifre
+    // le pasamos la clave secreta acordada para que descifre
     descifrador.SetKeyWithIV(clave_bytes, sizeof(clave_bytes), iv);
 
-    // Pipeline de descifrado. Le pasamos el texto cifrado
-    StringSource(mensaje_cifrado, true,
+    // pipeline de descifrado. Le pasamos el texto cifrado recibido
+    StringSource(mensaje_cifrado_recibido, true,
         new StreamTransformationFilter(descifrador,
             new StringSink(mensaje_recuperado)
         )
     );
 
     cout << "------------------------------------------------" << endl;
-    std::cout << "[VERIFICACION] Mensaje recuperado: " << mensaje_recuperado << std::endl;
+    cout << "[VERIFICACION] Mensaje recuperado: " << mensaje_recuperado << endl;
 
     return 0;
 }
