@@ -1,19 +1,19 @@
 # Lab1-Redes-2025s1
-## Como usar crypto++:
-1. Descarguen la ultima version de cripto https://www.cryptopp.com/#download
-2. Creen una carpeta en C: llamada dev (o como quieran) y metan el zip descomprimido q descargaron les deberia qquedar algo como C/dev/Criptopp890
-3. Descarguen el zip de este git https://github.com/noloader/cryptopp-pem
-4. Descompriman y metan todos esos archivos en C/dev/Criptopp890
-5. Con MSYS navegen hasta C/dev/Criptopp890
-6. Ejecuten 'make clean'
-7. Ejecuten 'make'
-8. Ejecuten 'make install PREFIX=/mingw64'
-9. Y listo, tendran la libreria Cryptopp(crypto++) con el archivo pem.h que sirve para cargar claves pem en c++
-10. Compilar los archivos con 'g++ nombre.cpp -o nombre -mconsole -lcryptopp'
 
-## que falta de momento?
-1. Faltaria el desarollo de la 4. (canal seguro o algo asi) creo q la solucion de esta parte se basa en crear un canal hibrido que usa AES y RSA para enviar/recibir y confirmar la autenticidad del mensaje
-2. Hacer el informe de latex
+## Cómo usar Crypto++
 
-### Logica de asimetrico.cpp:
-El mensaje es enviado de la forma paquete = mensaje_cifrado + delimitador + firma
+1. Descargar la última versión de Crypto++ desde https://www.cryptopp.com/#download  
+2. Crear una carpeta en 'C:\' llamada 'dev' (o con el nombre de su preferencia) y descomprimir allí el ZIP descargado (ejemplo, `C:\dev\Criptopp890`)  
+3. Descargar el ZIP del repositorio PEM: https://github.com/noloader/cryptopp-pem  
+4. Descomprimirlo y copiar todos los archivos en 'C:\dev\Criptopp890'
+5. Abrir MSYS y navegar a 'C:/dev/Criptopp890'
+6. Ejecutar los siguientes comandos:
+   	'make clean'
+	'make'
+	'make install PREFIX=/mingw64'
+7. Tras completar estos pasos, dispondrá de la biblioteca Crypto++ junto con el archivo 'pem.h', necesario para la carga de claves PEM en aplicaciones C++ 
+8. Para compilar los programas con Crypto++, ejecutar:  
+   	'g++ nombre.cpp -o nombre -mconsole -lcryptopp'
+
+	
+
